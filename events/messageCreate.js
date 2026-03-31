@@ -11,7 +11,7 @@ module.exports = {
 
     const authorAfk = getAfk(message.author.id);
 
-    if (afkStatus) {
+    if (authorAfk) {
       const embed = new EmbedBuilder()
         .setTitle("👋 Welcome back!")
         .setDescription("I removed your AFK status.")
@@ -21,7 +21,7 @@ module.exports = {
       message.reply({ embeds: [embed] });
     }
 
-    if (message.mentions.users > 0) {
+    if (message.mentions.users.size > 0) {
       message.mentions.users.forEach((user) => {
         const afkStatus = getAfk(user.id);
 
